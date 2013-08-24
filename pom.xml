@@ -1,0 +1,48 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>JerseyRestMavenServer</groupId>
+	<artifactId>JerseyRestMavenServer</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<build>
+		<sourceDirectory>src</sourceDirectory>
+		<plugins>
+			<plugin>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.0</version>
+				<configuration>
+					<source />
+					<target />
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+	<dependencies>
+	
+		<dependency>
+			<groupId>org.glassfish.jersey.core</groupId>
+			<artifactId>jersey-server</artifactId>
+			<version>2.0</version>
+			<configuration>
+				<downloadSources>true</downloadSources>
+				<downloadJavadocs>true</downloadJavadocs>
+			</configuration>
+		</dependency>
+
+		<dependency>
+			<groupId>org.glassfish.jersey.containers</groupId>
+			<artifactId>jersey-container-jdk-http</artifactId>
+			<version>2.0</version>
+			<configuration>
+				<downloadSources>true</downloadSources>
+				<downloadJavadocs>true</downloadJavadocs>
+			</configuration>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.json</groupId>
+			<artifactId>json</artifactId>
+			<version>20090211</version>
+		</dependency>
+	</dependencies>
+</project>
