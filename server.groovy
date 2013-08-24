@@ -1,5 +1,3 @@
-import com.sun.net.httpserver.HttpServer
-import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
 
@@ -12,18 +10,24 @@ import org.glassfish.jersey.server.ResourceConfig;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-@Path("helloworld")
-public class HelloWorldResource { // Must be public
+import com.sun.net.httpserver.HttpServer;
 
-	@GET
-	@Path("json")
-	@Produces("application/json")
-	public String json() throws JSONException {
-		JSONObject json = new JSONObject();
-		json.put("foo", "bar");
-		return json.toString();
+public class Server1 {
+	@Path("helloworld")
+	public static class HelloWorldResource { // Must be public
+
+		@GET
+		@Path("json")
+		@Produces("application/json")
+		public String json() throws JSONException {
+			JSONObject json = new JSONObject();
+			json.put("foo", "bar");
+			return json.toString();
+		}
+	}
+
+	public static void main(String[] args) throws URISyntaxException {
+		HttpServer server = JdkHttpServerFactory.createHttpServer(
+				new URI("http://localhost:9099/"), new ResourceConfig(HelloWorldResource.class));
 	}
 }
-
-HttpServer server = JdkHttpServerFactory.createHttpServer(
-		new URI("http://localhost:9099/"), new ResourceConfig(HelloWorldResource.class));
